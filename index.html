@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👾 蒸汽波怪词混合生成器 👾</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Varela+Round&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css"> 
+
+    <style>
+        /* 简单地把棕榈树剪影作为背景图片添加到 body，以增加视觉效果 */
+        body {
+            /* 假设您有一张透明背景的棕榈树图片，如果没有，这行可以移除 */
+            /* background-image: url('palm_tree_silhouette.png'); */
+            background-repeat: no-repeat;
+            background-position: left bottom, right bottom;
+            background-size: 200px, 200px;
+        }
+        
+        /* 确保自定义词库的文本区域可见 */
+        #customWords {
+            width: 95%;
+            height: 150px;
+            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            border: 1px solid #FF1493;
+            padding: 10px;
+            font-family: inherit;
+            resize: vertical; /* 允许用户拖动改变高度 */
+        }
+    </style>
+</head>
+<body>
+    <div class="vapor-grid-overlay"></div> 
+    
+    <div class="container">
+        <h1 class="title">奇怪名词混合生成器</h1>
+
+        <div class="input-area">
+            <h3>手动输入混合：</h3>
+            <input type="text" id="nounInput" placeholder="输入名词 1 (可留空)">
+            <span class="plus-sign" style="color: #FF1493; font-size: 1.5em; font-weight: bold;">+</span>
+            <input type="text" id="adjInput" placeholder="输入名词/形容词 2 (可留空)">
+        </div>
+        
+        <div class="custom-word-input">
+            <h3>📖 自定义词库：</h3>
+            <p style="color: #FFFFFF;">输入您的词汇，系统可从中随机抽取来替代上方的空输入框。</p>
+            <textarea id="customWords" placeholder="在此输入自定义词汇，每行一个词，例如：
+蒸汽
+机器人
+蝴蝶
+香蕉
+..."></textarea>
+            <button id="loadWordsBtn" class="neon-btn" style="margin-top: 10px;">💾 加载自定义词库</button>
+            <p id="wordCount" style="color: #00FFFF; font-size: 0.9em; margin-top: 10px;">词库已加载：0 个词</p>
+        </div>
+        
+        <button id="generateBtn" class="neon-btn" style="margin-bottom: 30px;">
+            ✨ 生成混合体 ✨
+        </button>
+        
+        <div id="resultBox" class="result-box">
+            <p class="result-label" style="font-size: 1.1em; color: #9370db;">结果：</p>
+            <p id="hybridWord" class="hybrid-word">等待生成...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>

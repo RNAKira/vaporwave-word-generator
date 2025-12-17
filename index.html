@@ -3,72 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👾 蒸汽波怪词混合生成器 👾</title>
+    <title>👾 蒸汽波汽锅鸡生成器 👾</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css"> 
-
-    <style>
-        /* 简单地把棕榈树剪影作为背景图片添加到 body，以增加视觉效果 */
-        body {
-            /* 假设您有一张透明背景的棕榈树图片，如果没有，这行可以移除 */
-            /* background-image: url('palm_tree_silhouette.png'); */
-            background-repeat: no-repeat;
-            background-position: left bottom, right bottom;
-            background-size: 200px, 200px;
-        }
-        
-        /* 确保自定义词库的文本区域可见 */
-        #customWords {
-            width: 95%;
-            height: 150px;
-            margin-top: 10px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #FFFFFF;
-            border: 1px solid #FF1493;
-            padding: 10px;
-            font-family: inherit;
-            resize: vertical; /* 允许用户拖动改变高度 */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="vapor-grid-overlay"></div> 
     
     <div class="container">
-        <h1 class="title">奇怪名词混合生成器</h1>
+        <h1 class="title">蒸汽波汽锅鸡生成器</h1>
 
-        <div class="input-area">
-            <h3>手动输入混合：</h3>
-            <input type="text" id="nounInput" placeholder="输入名词 1 (可留空)">
-            <span class="plus-sign" style="color: #FF1493; font-size: 1.5em; font-weight: bold;">+</span>
-            <input type="text" id="adjInput" placeholder="输入名词/形容词 2 (可留空)">
+        <div class="input-section">
+            <div class="input-group">
+                <input type="text" id="nounInput" placeholder="输入词汇 1 (或留空)">
+                <span class="symbol">×</span>
+                <input type="text" id="adjInput" placeholder="输入词汇 2 (或留空)">
+            </div>
         </div>
         
-        <div class="custom-word-input">
-            <h3>📖 自定义词库：</h3>
-            <p style="color: #FFFFFF;">输入您的词汇，系统可从中随机抽取来替代上方的空输入框。</p>
-            <textarea id="customWords" placeholder="在此输入自定义词汇，每行一个词，例如：
-蒸汽
-机器人
+        <div class="custom-section">
+            <h3>📖 自定义词库 (每行一个词)</h3>
+            <textarea id="customWords" placeholder="在这里粘贴大量词汇...
+例如：
+像素落日
+故障爱心
+电子眼泪
+拨号星空
+蓝屏泳池
+Windows蓝天
+数据海滩
+二进制海风
+加载光标
+404乐园
+虚拟热带鱼
+光盘彩虹
+网格棕榈树
+鼠标轨迹
+低保真梦
+窗口波纹
+磁带天空
+超链接珊瑚
+256色晚霞
+缓存花瓣
+石膏像耳机
+大理石手机
+赛博古罗马
+爵士萨克斯
+慢速舞蹈
+购物频道
+粉红霓虹
+迷幻网格
+日文片假名
+雅达利脉冲
+低保真放克
+动漫侧面像
+柔和故障
+网格日落
+立体声波浪
+平滑爵士
+酸性渐变
+抽象几何
+未来主义雕塑
+柔焦回忆
+果冻手机
+透明键盘
+镭射光盘
+全息蝴蝶
+液态金属
+硅胶质感
+荧光线条
+亚克力之心
+发光电路
+水晶UI
+渐变墨镜
+塑料珍珠
+橡胶浪潮
+金属流体
+虹彩薄膜
+乙烯基未来
+有机玻璃云
+导电丝绸
+弹性像素
+折射气泡
+午夜驱动器
+
+都市雨夜
+
+停车场电台
+
+电梯音乐
+
+便利店光
+
+航站楼
+
+高速路反光
+
+摩天楼倒影
+
+午夜巡航
+
+氖气标志
+
+地下通道
+
+楼顶天线
+
+自动售货机
+
+出租车雨痕
+
+停机坪风
+
+泛光灯雾
+
+地铁节奏
+
+玻璃幕墙
+
+循环通风口
+
+夜间施工
+
+数字乡愁
+
+延迟快乐
+
+模拟灵魂
+
+温室互联网
+
+云端大理石
+
+回忆压缩包
+
+湿润芯片
+
+慵懒科技
+
+太空电梯音乐
+
+复古未来主义
+
+温室互联网
+
+光滑的忧郁
+
+数据薄雾
+
+失重花园
+
+晶体生长
+
+无限镜像
+
+低保真
+
+数字化
+
+故障
+
+失真
+
+半透明
+
+赛博
+
+慵懒
+
+迷幻
+
+温暖
+
+冰冷
+
+粉彩
+
+霓虹
+
+荧光
+
+镭射
+
+渐变
+
+光滑
+
+像素化
+
+抽象
+
+复古
+
+未来
+
+虚拟
+
+冗余
+
+延迟
+
+模拟
+
+平滑
+
+酸性
+
+柔软
+
+网格状
+
+立体
+
+湿润
+
+失重
+
+甜蜜
+
+忧郁
+
+光滑
+
+无限
+
+循环
+
+自动
+
+夜光
+
+都市
+
+柔焦
+
+冗余
+
+弹性
+
+导电
+
+有机
+
+折射
+
+薄雾
+
+永恒
+
+静态
+
+脉冲
+
+压缩
+
+静态
+
+数据
+
+眼泪
+
+泳池
+
+海滩
+
+星空
+
+黄昏
+
+爱心
+
+落日
+
+珊瑚
+
+古罗马
+
+石膏像
+
+网格
+
+波浪
+
+几何
+
+雕塑
+墨镜
+键盘
+手机
+光盘
 蝴蝶
-香蕉
-..."></textarea>
-            <button id="loadWordsBtn" class="neon-btn" style="margin-top: 10px;">💾 加载自定义词库</button>
-            <p id="wordCount" style="color: #00FFFF; font-size: 0.9em; margin-top: 10px;">词库已加载：0 个词</p>
+电路
+珍珠
+丝绸
+气泡
+驱动器
+雨夜
+电台
+电梯
+便利店
+航站楼
+反光
+倒影
+巡航
+标志
+通道
+天线
+雨痕
+停机坪
+幕墙
+通风口
+乡愁
+灵魂
+互联网
+云端
+回忆
+芯片
+科技
+音乐
+花园
+多巴胺"></textarea>
+            <button id="loadWordsBtn" class="neon-btn secondary">💾 加载词库</button>
+            <p id="wordCount">词库状态：等待加载...</p>
         </div>
         
-        <button id="generateBtn" class="neon-btn" style="margin-bottom: 30px;">
-            ✨ 生成混合体 ✨
-        </button>
+        <button id="generateBtn" class="neon-btn main-btn">✨ 开始生成 ✨</button>
         
-        <div id="resultBox" class="result-box">
-            <p class="result-label" style="font-size: 1.1em; color: #9370db;">结果：</p>
-            <p id="hybridWord" class="hybrid-word">等待生成...</p>
+        <div class="result-box">
+            <p class="result-label">生成结果：</p>
+            <p id="hybridWord">准备就绪</p>
         </div>
     </div>
 
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>

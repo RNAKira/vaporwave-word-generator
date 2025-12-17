@@ -1,25 +1,25 @@
-/* 基础设置：消除默认边距并设置高度 */
-html, body {
+/* 全局重置 */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-}
-
-body {
-    /* 核心：使用 Flexbox 让内容水平和垂直居中 */
+    /* 核心居中逻辑 */
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* 蒸汽波渐变背景 */
+    overflow-x: hidden;
     background: linear-gradient(135deg, #1A0033 0%, #4B0082 50%, #FF1493 100%);
-    color: #FFFFFF;
-    font-family: 'Varela Round', 'Microsoft YaHei', sans-serif;
-    overflow-x: hidden; /* 防止横向滚动条 */
+    /* 全局应用思源宋体 */
+    font-family: 'Noto Serif SC', serif;
+    color: white;
 }
 
-/* 蒸汽波网格地板：固定在底部，带有一点透视感 */
+/* 蒸汽波网格 */
 .vapor-grid-overlay {
     position: fixed;
     bottom: 0;
@@ -34,100 +34,128 @@ body {
     transform: perspective(500px) rotateX(60deg);
     transform-origin: bottom;
     z-index: 0;
-    pointer-events: none; /* 让鼠标点击可以穿透背景 */
+    pointer-events: none;
 }
 
-/* 主容器：限制宽度并增加玻璃拟态效果 */
+/* 主容器：玻璃拟态效果 */
 .container {
     position: relative;
     z-index: 10;
     width: 90%;
-    max-width: 600px;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
-    backdrop-filter: blur(10px); /* 模糊背后背景，高级感 */
+    max-width: 550px;
+    background: rgba(20, 0, 40, 0.8);
+    backdrop-filter: blur(12px);
     border: 2px solid #00FFFF;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(255, 20, 147, 0.3);
+    border-radius: 24px;
+    padding: 40px;
     text-align: center;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(255, 20, 147, 0.2);
 }
 
 /* 标题样式 */
 .title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.8em;
+    font-size: 2.2em;
+    font-weight: 700;
     color: #FF69B4;
-    text-shadow: 3px 3px #00FFFF;
+    text-shadow: 3px 3px 0px #00FFFF;
     margin-bottom: 30px;
-    line-height: 1.5;
+    letter-spacing: 2px;
 }
 
-/* 输入区域 */
+/* 输入控件 */
 input[type="text"], textarea {
+    font-family: 'Noto Serif SC', serif;
     width: 100%;
-    box-sizing: border-box; /* 确保 padding 不挤开宽度 */
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #FF1493;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #FF69B4;
     color: white;
     padding: 12px;
-    margin: 10px 0;
     border-radius: 8px;
+    margin: 8px 0;
     outline: none;
-    font-size: 1em;
+    transition: 0.3s;
 }
 
-input[type="text"]:focus, textarea:focus {
+input:focus, textarea:focus {
     border-color: #00FFFF;
     box-shadow: 0 0 10px #00FFFF;
 }
 
-/* 霓虹按钮 */
-.neon-btn {
-    width: 100%;
-    padding: 15px;
-    margin-top: 15px;
-    background: #FF1493;
-    border: none;
-    color: white;
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.symbol {
+    color: #00FFFF;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
+}
+
+/* 按钮样式 */
+.neon-btn {
+    font-family: 'Noto Serif SC', serif;
     cursor: pointer;
+    border: none;
     border-radius: 8px;
-    box-shadow: 0 0 15px #FF1493;
+    font-weight: 700;
     transition: 0.3s;
     text-transform: uppercase;
 }
 
-.neon-btn:hover {
+.main-btn {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.2em;
+    background: #FF1493;
+    color: white;
+    box-shadow: 0 0 20px #FF1493;
+    margin-top: 20px;
+}
+
+.main-btn:hover {
     background: #00FFFF;
     color: #000;
-    box-shadow: 0 0 25px #00FFFF;
-    transform: scale(1.02);
+    box-shadow: 0 0 30px #00FFFF;
+    transform: translateY(-2px);
 }
 
-.neon-btn:active {
-    transform: scale(0.98);
+.secondary {
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid #00FFFF;
+    color: #00FFFF;
+    font-size: 0.9em;
 }
 
-/* 结果展示区 */
+.secondary:hover {
+    background: rgba(0, 255, 255, 0.1);
+}
+
+/* 结果区 */
 .result-box {
     margin-top: 30px;
-    padding: 20px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
 }
 
-.hybrid-word {
-    font-size: 1.5em;
+#hybridWord {
+    font-size: 1.8em;
     color: #00FFFF;
-    text-shadow: 0 0 10px #00FFFF;
-    font-weight: bold;
+    text-shadow: 0 0 15px #00FFFF;
+    font-weight: 700;
     margin-top: 10px;
-    min-height: 1.6em;
 }
 
-/* 辅助文字 */
 h3 {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #FFB6C1;
-    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#wordCount {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-top: 5px;
 }
